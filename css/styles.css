@@ -4,6 +4,8 @@
     --accent-color: #ff3400;
     --heading-color: #1b0760;
     --body-color: #918ca4;
+    --color-border: #ccc;
+    --border-radius: 30px;
 }
 
 *, *::after, *::before {
@@ -181,13 +183,17 @@ a {
 }
 
 .icon-container {
-    background: f3f9fa;
+    background: #f3f9fa;
     width: 64px;
     height: 64px;
     border-radius: 100%;
     display: inline-flex;
     justify-content: center;
     align-items: center;
+}
+
+.icon-container--accent {
+    background: var(--accent-color);
 }
 
 .icon-container .icon {
@@ -243,10 +249,52 @@ a {
     transform: translateY(-2px);
 }
 
+.btn .icon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+    vertical-align: middle;
+}
+
 @media screen and (min-width: 1024px) {
     .btn {
         font-size: 1.5rem;
     }
 }
 
+/* Inputs */
+.input {
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    color: var(--heading-color);
+    font-size: 2rem;
+    outline: 0;
+    padding: 1.5rem 3rem;
+    display: inline-block;
+}
 
+.input::placeholder {
+    color: #cdcbd7;
+}
+
+.input-group {
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    display: flex;
+}
+
+.input-group .input {
+    border: 0;
+    flex-grow: 1;
+    padding: 1.5rem 1rem;
+}
+
+.input-group .btn {
+    margin: 4px;
+}
+
+@media screen and (min-width: 1024px) {
+    .input {
+        font-size: 1.5rem;
+    }
+}
