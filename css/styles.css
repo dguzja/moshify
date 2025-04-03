@@ -119,3 +119,45 @@ a {
         font-size: 1.2rem;
     }
 }
+
+/* Lists */
+.list {
+    list-style: none;
+    padding-left: 0;
+    color: var(--heading-color);
+}
+
+.list--inline .list__item {
+    display: inline-block;
+    margin-right: 2rem;
+}
+
+.list--tick {
+    list-style: none;
+    padding-left: 2rem;
+}
+
+.list--tick .list__item {
+    padding-left: 3rem;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.list--tick .list__item::before {
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    background-image: url(/images/check-mark.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media screen and (min-width: 1024px) {
+    .list--tick .list__item {
+        padding-left: 2rem;
+    }
+}
