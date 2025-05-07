@@ -4,6 +4,7 @@
     --accent-color: #ff3400;
     --heading-color: #1b0760;
     --body-color: #918ca4;
+    --color-body-darker: #5c5577;
     --color-border: #ccc;
     --border-radius: 30px;
 }
@@ -469,6 +470,35 @@ a {
     margin: 0 1rem;   
 }
 
+/* Grids */
+.grid {
+    display: grid;
+}
 
+@media screen and (min-width: 768px) {
+    .grid--1x2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
+@media screen and (min-width: 1024px) {
+    .grid--1x2 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 
+/* Testimonials */
+.testimonial {
+    padding: 3rem;
+}
+
+.testimonial__image {
+    width: 100%;
+}
+
+.quote {
+    font-size: 2rem;
+    font-style: italic;
+    color: var(--color-body-darker);
+    line-height: 1.3;
+}
