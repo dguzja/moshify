@@ -496,14 +496,31 @@ a {
 /* Media */
 .media {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
     margin-bottom: 1rem;
+    margin-top: 3rem;
+    width: 100%;
 }
 
 .media__image {
-    margin-top: 0;
-    margin-left: 1.4rem;
+    margin: 0;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.media__image .icon {
+    width: 60px;
+    height: 60px;
+}
+
+.media__image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .media__title {
@@ -511,7 +528,65 @@ a {
 }
 
 .media__body {
-    margin: 0 1rem;   
+    margin: 0;
+    text-align: center;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+.media__text {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 767px) {
+    .media {
+        margin-left: 0;
+    }
+
+    .grid--1x2 {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        padding: 0 2rem;
+    }
+
+    .grid--1x2 .media__image {
+        order: -1;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .media {
+        align-items: flex-start;
+        margin-left: 0;
+    }
+
+    .media__body {
+        text-align: left;
+        padding: 0;
+    }
+
+    .grid--1x2 {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        padding: 0 6rem;
+        gap: 6rem;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .grid--1x2 .media {
+        justify-self: start;
+    }
+
+    .grid--1x2 .media__image {
+        justify-self: end;
+    }
+
+    .media__image {
+        max-width: 500px;
+    }
 }
 
 /* Grids */
@@ -680,6 +755,11 @@ a {
 @media screen and (min-width: 768px) {
     .grid--1x3 {
         grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+        padding-left: 8rem;
+        padding-right: 8rem;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 }
 
@@ -998,5 +1078,18 @@ a {
     .block-domain__prices {
         grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
         grid-template-rows: repeat(2, 6rem);
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .grid--1x3 {
+        justify-items: center;
+    }
+    .grid--1x3 > .media__image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0;
+        margin-right: 0;
     }
 }
