@@ -383,7 +383,7 @@ a {
 /* Plans */
 .plan-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 4rem;
     padding: 4rem;
     max-width: 1200px;
@@ -391,11 +391,21 @@ a {
 }
 
 .plan {
-    transition: transform 0.2s ease-in;
+    transition: transform 0.3s ease-in-out;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .plan:hover {
+    transform: translateY(-10px);
+}
+
+.plan--popular {
     transform: scale(1.05);
+}
+
+.plan--popular:hover {
+    transform: scale(1.05) translateY(-10px);
 }
 
 .plan__name {
@@ -423,6 +433,7 @@ a {
     letter-spacing: 1px;
     display: block;
 }
+
 .plan .list__item {
     margin-bottom: 1rem;
 }
@@ -452,32 +463,33 @@ a {
     }
 }
 
-@media screen and (min-width: 1024px) {
-    .plan--name {
-        font-size: 1.4rem;
+@media screen and (max-width: 1024px) {
+    .plan-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        padding: 2rem;
     }
-
-    .plan__price {
-        font-size: 5rem;
+    
+    .plan--popular {
+        grid-column: 1 / -1;
+        transform: scale(1);
     }
-
-    .plan__billing-cycle {
-        font-size: 1.6rem;
-    }
-
-    .plan__description {
-        font-size: 1.7rem;
-    }
-
-    .plan .list__item {
-        font-size: 1.6rem;
+    
+    .plan--popular:hover {
+        transform: translateY(-10px);
     }
 }
 
 @media screen and (max-width: 768px) {
     .plan-container {
         grid-template-columns: 1fr;
-        padding: 2rem;
+        padding: 1rem;
+        gap: 6rem;
+    }
+
+    .plan {
+        max-width: 100%;
+        padding: 0 1rem;
     }
 }
 
